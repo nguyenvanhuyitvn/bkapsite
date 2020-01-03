@@ -1,0 +1,87 @@
+<body class="inventory-body">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="javascript:void(0)" routerLinkActive="router-link-active"><b>BKAP </b><small>Information Portal</small></a>
+            <p style="font-size: 16px;">Đăng ký thành viên mới</p>
+        </div>
+
+        <div class="register-box-body">
+            <form action="" method="POST" enctype="multipart/form-data" (ngSubmit)="onFormSubmit()">
+                <mat-form-field>
+                    <input [(ngModel)]="students.Name" matInput [formControl]="Name" [errorStateMatcher]="matcher" placeholder="Tên sinh viên:">
+                    <mat-error *ngIf="Name.hasError('required')">
+                        Tên sinh viên: <strong>không được để trống</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]="students.Password" matInput [formControl]="Password" [errorStateMatcher]="matcher" placeholder="Mật khẩu:">
+                    <mat-error *ngIf="Password.hasError('required')">
+                        Mật khẩu: <strong>không được để trống</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" [formControl]="Birthday" [(ngModel)]="students.Birthday" placeholder="Ngày sinh" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker disabled="false"></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="email" [(ngModel)]="students.Email" matInput [formControl]="Email" appUnique [errorStateMatcher]="matcher" placeholder="Email:">
+                    <mat-error *ngIf="Email.hasError('required')">
+                        Email: <strong>không được để trống</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Email.hasError('isCodeUnique')">
+                        Email: <strong>đã tồn tại!</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Chọn lớp học:</mat-label>
+                    <mat-select matInput [formControl]="ClassName" [(ngModel)]="students.ClassName" [(value)]="students.ClassName">
+                        <mat-option *ngFor="let c of classes" [value]="c.ClassName">{{ c.ClassName }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ClassName.hasError('required')">
+                        Lớp: <strong>không được để trống</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]="students.Phone" matInput [formControl]="Phone" checkNumber [errorStateMatcher]="matcher" placeholder="Số điện thoại:">
+                    <mat-error *ngIf="Phone.hasError('required')">
+                        Số điện thoại: <strong>không được để trống</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Phone.hasError('invalidNumber')">
+                        Số điện thoại: <strong>phải là số!</strong>
+                    </mat-error>
+                    <mat-error *ngIf="Phone.hasError('isCodeUnique')">
+                        Số điện thoại: <strong>đã tồn tại!</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]="students.Address" matInput [formControl]="Address" [errorStateMatcher]="matcher" placeholder="Địa chỉ:">
+                </mat-form-field>
+                <label>Ảnh đại diện:</label>
+                <input type="file" [formControl]="Image" name="Image" id="image" (change)="uploadImage($event)" style="display:none">
+                <br>
+                <img [src]="imgURL" style="width: 100px; height: 100px; cursor:pointer" id="avatar" />
+                <div align="left" class="imagediv">
+                    <span class="visibleimg"></span>
+                </div>
+                <div class="pt-10 mt-10">
+                    <label id="example-radio-group-label">Giới tính:</label>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="students.Gender" [formControl]="Gender" class="example-radio-group pt-10 mt-10">
+                        <mat-radio-button class="example-radio-button gender" *ngFor="let gender of genders" [value]="gender.id">
+                            {{ gender.name }}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <br>
+                <a [routerLink]="['/xac-thuc']" class="mt-10" routerLinkActive="router-link-active" class="text-center">Tôi đã là một thành viên</a>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" class="button" [disabled]="Name.invalid || ClassName.invalid || Email.invalid" type="submit" matTooltip="Gửi yêu cầu"> Đăng ký </button>
+                </mat-card-actions>
+
+            </form>
+        </div>
+        <!-- /.form-box -->
+    </div>
+    <!-- /.register-box -->
+</body>

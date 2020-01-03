@@ -1,0 +1,62 @@
+<!-- Inner Page Banner Area Start Here -->
+<div class="inner-page-banner-area" style="background-image: url('assets/img/banner/5.jpg');">
+    <div class="container">
+        <div class="pagination-area">
+            <h1 *ngIf="newsCatalog == 1">Tin Tức Công Nghệ</h1>
+            <h1 *ngIf="newsCatalog == 14">Tin Tức Sinh Viên</h1>
+            <ul>
+                <li><a [routerLink]="['/trang-chu']" routerLinkActive="router-link-active">Trang chủ</a> -</li>
+                <li *ngIf="newsCatalog == 1">Tin tức công nghệ</li>
+                <li *ngIf="newsCatalog == 14">Tin tức sinh viên</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Inner Page Banner Area End Here -->
+<!-- Event Page Area Start Here -->
+<div class="event-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div class="row event-inner-wrapper">
+                    <div class="col-lg-12 col-md-6 col-sm-12 col-xs-6" *ngFor="let new of dataSource">
+                        <div class="single-item">
+                            <div class="item-img">
+                                <a [routerLink]="['/tin-tuc/bai-viet', new.NewsId]" routerLinkActive="router-link-active"><img src="{{ imgURL }}{{ new.Images }}" alt="event" class="img-responsive"></a>
+                            </div>
+                            <div class="item-content">
+                                <h3 class="sidebar-title"><a [routerLink]="['/tin-tuc/bai-viet',new.NewsId]" routerLinkActive="router-link-active">{{ new.Title }}</a></h3>
+                                <p [innerHTML]="new.Description | shortPipe:0: 150"></p>
+                                <ul class="event-info-block">
+                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{ new.Created | timeformat }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="sidebar">
+                    <div class="sidebar-box">
+                        <div class="sidebar-box-inner">
+                            <h3 class="sidebar-title" style="text-transform: uppercase">danh mục</h3>
+                            <ul class="sidebar-categories">
+                                <li><a [routerLink]="['/thoi-khoa-bieu']" routerLinkActive="router-link-active">Thời khóa biểu</a></li>
+                                <li><a [routerLink]="['/lich-thi']" routerLinkActive="router-link-active">Lịch thi</a></li>
+                                <li><a [routerLink]="['/doi-phong-hoc']" routerLinkActive="router-link-active">Đổi phòng học</a></li>
+                                <li><a [routerLink]="['/van-ban']" routerLinkActive="router-link-active">Văn bản biểu mẫu</a></li>
+                                <li><a [routerLink]="['/tin-tuc/danh-muc',1]" routerLinkActive="router-link-active">Sự kiện công nghệ</a></li>
+                                <li><a [routerLink]="['/tin-tuc/danh-muc',2]" routerLinkActive="router-link-active">Tin tức hội học sinh</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand Area End Here -->

@@ -1,0 +1,96 @@
+<!-- Event Page Area Start Here -->
+<div class="event-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div class="row event-inner-wrapper">
+                    <div class="col-lg-12 col-md-6 col-sm-12 col-xs-6">
+                        <mat-toolbar color="primary">
+                            <mat-toolbar-row>
+                                <h1 class="text-uppercase">danh sách đăng ký</h1>
+                            </mat-toolbar-row>
+                        </mat-toolbar>
+                        <mat-card class="example-card">
+                            <mat-card-content>
+                                <mat-form-field>
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                </mat-form-field>
+
+                                <div class="mat-elevation-z8">
+                                    <table mat-table [dataSource]="dataSource" matSort>
+                                        <!-- Title Column -->
+                                        <ng-container matColumnDef="title">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Chủ đề </th>
+                                            <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+                                        </ng-container>
+
+                                        <!-- Class Column -->
+                                        <ng-container matColumnDef="class_id">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Lớp </th>
+                                            <td mat-cell *matCellDef="let row"> {{row.class_id}} </td>
+                                        </ng-container>
+
+                                        <!-- Description Column -->
+                                        <ng-container matColumnDef="description">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Mô tả </th>
+                                            <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+                                        </ng-container>
+
+                                        <!-- Room Column -->
+                                        <ng-container matColumnDef="support_room">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phòng </th>
+                                            <td mat-cell *matCellDef="let row"> {{row.room}} </td>
+                                        </ng-container>
+                                        <!-- Date Column -->
+                                        <ng-container matColumnDef="date">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Ngày </th>
+                                            <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+                                        </ng-container>
+                                        <!-- Status Column -->
+                                        <ng-container matColumnDef="status">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Trạng thái </th>
+                                            <td mat-cell *matCellDef="let row" class="text-center" style="vertical-align: middle">
+                                                <i class="fa" [class.fa-check-circle]='row.status==1' style='font-size:20px; color: greenyellow' data-toggle="tooltip" title="Đã duyệt!"></i>
+                                                <i class="fa" [class.fa-times-circle]="row.status==0" style='font-size:20px; color: red' data-toggle="tooltip" title="Chưa được duyệt!"></i>
+                                            </td>
+                                        </ng-container>
+
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                                        </tr>
+                                    </table>
+                                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
+                <div class="sidebar ">
+                    <div class="sidebar-box ">
+                        <div class="sidebar-box-inner ">
+                            <h3 class="sidebar-title" style="text-transform: uppercase">Hoạt động sinh viên</h3>
+                            <div class="sidebar-latest-research-area">
+                                <ul>
+                                    <li *ngFor="let item of dataNews">
+                                        <div class="latest-research-img ">
+                                            <a [routerLink]="['/tin-tuc/bai-viet', item.slug]" routerLinkActive="router-link-active"><img src="http://localhost:2222/api_resful/public/uploads/{{ item.image }}" class="img-responsive " alt="skilled "></a>
+                                        </div>
+                                        <div class="latest-research-content ">
+                                            <h4>30 Nov, 2016</h4>
+                                            <p>{{ item.newsTitle | shortPipe:0:20 }}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <mat-paginator #paginator [pageSize]="pageSize" [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand Area End Here -->

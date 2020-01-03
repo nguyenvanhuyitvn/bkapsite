@@ -1,0 +1,62 @@
+<!-- Inner Page Banner Area Start Here -->
+<div class="inner-page-banner-area" style="background-image: url('assets/img/banner/5.jpg');">
+    <div class="container">
+        <div class="pagination-area">
+            <h1 style="text-transform: uppercase">tra cứu điểm thi</h1>
+            <ul>
+                <li><a [routerLink]="['/trang-chu']" routerLinkActive="router-link-active">Trang chủ</a> -</li>
+                <li><a [routerLink]="['/sinh-vien/tra-cuu-diem-thi']" routerLinkActive="router-link-active">Tra cứu điểm thi</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Inner Page Banner Area End Here -->
+<!-- Event Page Area Start Here -->
+<div class="breadcrumbs" style="background-color: #F8F8F8;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['/trang-chu']" routerLinkActive="router-link-active">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a [routerLink]="['/sinh-vien/thong-tin']" routerLinkActive="router-link-active">Sinh viên</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tra cứu điểm thi</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="event-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div class="row news-details-page-inner">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h3 style="font-weight: bold;">Tra cứu điểm thi</h3>
+                        <div class="mt-5" style="font-size: 18px;">
+                            <p>Các bạn học viên của trường có thể tra cứu điểm thi : <a href="{{ scoresUrl }}" target="_blank">TẠI ĐÂY</a></p>
+                            <p>Trân trọng!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="sidebar-box">
+                    <div class="sidebar-box-inner">
+                        <h3 class="sidebar-title" style="text-transform: uppercase">Tin tức</h3>
+                        <div class="sidebar-related-area">
+                            <ul>
+                                <li *ngFor="let item of news">
+                                    <div class="related-img">
+                                        <a [routerLink]="['/tai-lieu-hoc-tap/danh-muc/bai-viet', item.NewsId]" routerLinkActive="router-link-active"><img src="{{ imgURL }}{{ item.Images }}" class="img-responsive" alt="related"></a>
+                                    </div>
+                                    <div class="related-content">
+                                        <span><a href="#">{{ item.Title | shortPipe:0:20  }}</a></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand Area End Here -->

@@ -1,0 +1,91 @@
+body {
+    /* position: relative; */
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.inventory-body {
+    position: fixed;
+    min-width: 100%;
+    background-image: url("/assets/img/banner/bg-2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.register-box {
+    background: rgba(255, 255, 255, .8);
+    width: 600px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .8);
+    border-radius: 10px;
+}
+
+.register-box-body {
+    padding: 10px;
+}
+
+.login-box-msg {
+    font-size: 28px;
+}
+
+.register-logo {
+    margin: 0 0 30px;
+    padding: 0;
+    /* color: #fff; */
+    text-align: center;
+    font-size: 36px;
+}
+
+mat-radio-group {
+    margin-top: 10px;
+}
+
+.register-logo a {
+    text-decoration: none;
+}
+
+.register-box-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-box-body>* {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 16px;
+}
+
+mat-radio-group {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 16px;
+}
+
+.button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}

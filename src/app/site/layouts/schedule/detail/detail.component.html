@@ -1,0 +1,66 @@
+<!-- Inner Page Banner Area Start Here -->
+<div class="inner-page-banner-area" style="background-image: url('assets/img/banner/5.jpg');">
+    <div class="container">
+        <div class="pagination-area">
+            <h1 style="text-transform: uppercase">thời khóa biểu</h1>
+            <ul>
+                <li><a href="#">Home</a> -</li>
+                <li>Events</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Inner Page Banner Area End Here -->
+<!-- Event Page Area Start Here -->
+<div class="event-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div class="row news-details-page-inner">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="news-img-holder">
+                            <img [src]="imgURL" class="img-responsive" alt="research">
+                        </div>
+                        <h2 class="title-default-left-bold-lowhight">{{ docs.DocName }}</h2>
+                        <ul class="title-bar-high news-comments">
+                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
+                        </ul>
+                        <img src="" alt="">
+                        <p [innerHTML]="docs.DocDescription"></p>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class=" mt-5">
+                            <p>Các bạn sinh viên có thể tải về: <a href="{{ docs.DocLink }}" target="_blank">TẠI ĐÂY</a></p>
+                            <p>Trân trọng!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="sidebar ">
+                    <div class="sidebar-box ">
+                        <div class="sidebar-box-inner ">
+                            <h3 class="sidebar-title" style="text-transform: uppercase">VĂN BẢN BIỂU MẪU</h3>
+                            <div class="sidebar-latest-research-area">
+                                <ul>
+                                    <li *ngFor="let item of documents">
+                                        <div class="latest-research-img ">
+                                            <a [routerLink]="['/van-ban/bai-viet', item.DocId]" routerLinkActive="router-link-active"><img [src]="item.imgURL" class="img-responsive " alt="skilled "></a>
+                                        </div>
+                                        <div class="latest-research-content ">
+                                            <p><a [routerLink]="['/van-ban/bai-viet', item.DocId]" routerLinkActive="router-link-active">{{ item.DocName | shortPipe:0:30 }}</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <mat-paginator #paginator [pageSize]="pageSize" [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!-- Brand Area End Here -->

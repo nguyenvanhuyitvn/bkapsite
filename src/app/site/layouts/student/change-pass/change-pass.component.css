@@ -1,0 +1,38 @@
+.content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container>* {
+    width: 100%;
+    padding: 10px;
+}
+
+.content-container input {
+    padding: 3px;
+}
+
+.header-image {
+    background-image: url('/assets/img/students/student2.jpg');
+    background-size: cover;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 16px;
+}
+
+.button {
+    margin-right: 8px;
+}
+
+.mat-card-header {
+    background: #FAFAFA
+}
+
+.span-alert {
+    color: red;
+}
+
+input {
+    border: none;
+}

@@ -1,0 +1,31 @@
+<body class="inventory-body">
+    <div class="box">
+        <h2><a href="javascript:void(0)" routerLinkActive="router-link-active"><b>BKAP </b><small>Information Portal</small></a></h2>
+        <form action="" method="post" [formGroup]="userForm" (ngSubmit)='onFormSubmit()'>
+            <div class="inputBox">
+                <input type="text" name="email" formControlName="email" #email required="required">
+                <label for="">Email</label>
+                <span *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched )" class="invalid-feedback">
+              <span *ngIf="userForm.controls['email'].errors.required" style="color: red">Email is required</span>
+                <span *ngIf="userForm.controls['email'].errors.email" style="color: red">Email must be a valid email address</span>
+                </span>
+            </div>
+
+            <div class="inputBox">
+                <input type="password" name="password" formControlName="password" #password required="required">
+                <label for="">Password</label>
+                <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched )" class="invalid-feedback">
+                    <span *ngIf="userForm.controls['password'].errors.required" style="color: red">Password is required</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-block slide" [disabled]="userForm.controls['email'].invalid || userForm.controls['password'].invalid">&nbsp;</button>
+
+
+        </form>
+        <div class="sign-up">
+            <a [routerLink]="['/xac-thuc/quen-mat-khau']" routerLinkActive="router-link-active">Quên mật khẩu?</a><br>
+            <a [routerLink]="['/xac-thuc/dang-ky']" routerLinkActive="router-link-active" class="text-center">Đăng ký thành viên mới</a>
+        </div>
+
+    </div>
+</body>

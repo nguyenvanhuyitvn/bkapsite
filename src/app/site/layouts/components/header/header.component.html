@@ -1,0 +1,172 @@
+<header>
+    <div id="header2" class="header4-area">
+        <div class="header-top-area" style="margin-bottom: 0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <div class="header-top-left">
+                            <div class="logo-area">
+                                <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active"><img class="img-responsive" src="assets/img/logo-bkap.png" alt="logo"></a>
+                                <p class="header_caption">Thay đổi để chạm đích nhanh hơn</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                        <div class="header-top-right">
+                            <h3 class="header-top-right-title">BACHKHOA-APTECH INTERNATIONAL IT EDUCATION SYSTEM</h3>
+                            <p class="header_caption">15 năm hoạt động - 30.000 HV đã tốt nghiệp - Chương trình đào tạo chuẩn quốc tế</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-menu-area bg-primary" id="sticker">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        <nav id="desktop-nav">
+                            <ul>
+                                <li class="active"><a [routerLink]="['/trang-chu']" routerLinkActive="router-link-active">Trang chủ</a>
+                                </li>
+                                <li><a href="javascript:void(0)">Thông tin</a>
+                                    <ul>
+                                        <li><a [routerLink]="['/thoi-khoa-bieu']" routerLinkActive="router-link-active">Thời khóa biểu</a></li>
+                                        <li><a [routerLink]="['/lich-thi']" routerLinkActive="router-link-active">Lịch thi dự kiến</a></li>
+                                        <li><a [routerLink]="['/thong-bao']" routerLinkActive="router-link-active">Thông báo thay đổi phòng học/ Nghỉ học</a></li>
+                                        <li><a [routerLink]="['/van-ban']" routerLinkActive="router-link-active">Văn bản biểu mẫu</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Tin tức</a>
+                                    <ul>
+                                        <li *ngFor="let item of newsCatalog"><a [routerLink]="['/tin-tuc/danh-muc', item.CategoryId]" routerLinkActive="router-link-active">{{ item.CategoryName }}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Hỗ trợ</a>
+                                    <ul>
+                                        <li><a [routerLink]="['/ho-tro-hoc-tap']" routerLinkActive="router-link-active">Danh sách đăng ký</a></li>
+                                        <li><a [routerLink]="['/ho-tro-hoc-tap/ttpm']" routerLinkActive="router-link-active">Hỗ trợ TTPM</a></li>
+                                        <li><a [routerLink]="['/ho-tro-hoc-tap/bknet']" routerLinkActive="router-link-active">Hỗ trợ BKNET</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="javascript:void(0)">Sinh viên</a>
+                                    <ul>
+                                        <li><a [routerLink]="['/sinh-vien/thong-tin']" routerLinkActive="router-link-active">Thông tin cá nhân</a></li>
+                                        <li><a [routerLink]="['/sinh-vien/doi-mat-khau']" routerLinkActive="router-link-active">Đổi mật khẩu</a></li>
+                                        <li><a [routerLink]="['/sinh-vien/tra-cuu-diem-thi']" routerLinkActive="router-link-active">Xem điểm</a></li>
+                                        <li><a href="javascript:void(0)">Số buổi đi học/nghỉ học</a></li>
+                                        <li><a href="javascript:void(0)">Xem lịch học</a></li>
+                                        <li><a href="javascript:void(0)">Xem lịch thi/ Bảo vệ Project</a></li>
+                                        <li><a href="javascript:void(0)">Đăng ký thi lại</a></li>
+                                        <li><a href="javascript:void(0)">Xem thông tin học phí</a></li>
+                                        <li><a href="javascript:void(0)">Xin phép nghỉ học</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Tài liệu</a>
+                                    <ul class="thired-level">
+                                        <li><a [routerLink]="['/tai-lieu-hoc-tap/danh-muc/2']" routerLinkActive="router-link-active">Tài liệu chuyên ngành</a></li>
+                                        <li><a [routerLink]="['/tai-lieu-hoc-tap/danh-muc/14']" routerLinkActive="router-link-active">Tài liệu tiếng anh</a></li>
+                                        <li><a [routerLink]="['/tai-lieu-hoc-tap/nop-bai-tap']" routerLinkActive="router-link-active">Nộp bài tập</a></li>
+                                        <li><a href="javascript:void(0)">Đánh giá của giảng viên</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Việc làm</a>
+                                    <ul class="thired-level">
+                                        <li><a href="http://bkaphr.vn/tuyen-dung">Thông tin việc làm</a></li>
+                                        <li><a href="http://bkaphr.vn/tuyen-dung">Đăng ký hỗ trợ việc làm</a></li>
+                                        <li><a href="http://bkaphr.vn/cv-online">Tạo CV</a></li>
+                                    </ul>
+                                </li>
+                                <li><a [routerLink]="['/gop-y']" routerLinkActive="router-link-active">Góp ý</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="header-login">
+                            <a href="javascript:void(0)" class="btn_drop">
+                                <i class="fa fa-user"></i> Hello {{ username }}
+                            </a>
+                            <ul class="header-login-dropdown dropdown text-left">
+                                <!-- <li><a [routerLink]="['/login']" routerLinkActive="router-link-active">Đăng nhập</a></li>
+                              <li><a [routerLink]="['/signup']" routerLinkActive="router-link-active">Đăng ký</a></li> -->
+                                <li *ngIf="register"><a [routerLink]="['/xac-thuc']" routerLinkActive="router-link-active">Đăng nhập</a></li>
+                                <li *ngIf="register"><a [routerLink]="['/xac-thuc/dang-ky']" routerLinkActive="router-link-active">Đăng ký</a></li>
+                                <li *ngIf="!register"><a [routerLink]="['/xac-thuc']" routerLinkActive="router-link-active" (click)="onLoggedout()">Thoát</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Mobile Menu Area Start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                <li><a href="#">Trang chủ</a></li>
+                                <li><a href="javascript:void(0)">Thông tin</a>
+                                    <ul>
+                                        <li><a href="javascript:void(0)">Thời khóa biểu</a></li>
+                                        <li><a href="javascript:void(0)">Lịch thi dự kiến</a></li>
+                                        <li><a href="javascript:void(0)">Thông báo thay đổi phòng học/ Nghỉ học</a></li>
+                                        <li><a [routerLink]="['/van-ban']" routerLinkActive="router-link-active">Văn bản biểu mẫu</a></li>
+                                        <li><a [routerLink]="['/tin-tuc/danh-muc', 1]" routerLinkActive="router-link-active">Sự kiện công nghệ</a></li>
+                                        <li><a [routerLink]="['/tin-tuc/danh-muc', 2]" routerLinkActive="router-link-active">Hoạt động hội sinh viên</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Hỗ trợ</a>
+                                    <ul>
+                                        <li><a [routerLink]="['/ho-tro-hoc-tap']" routerLinkActive="router-link-active">Danh sách đăng ký</a></li>
+                                        <li><a [routerLink]="['/ho-tro-hoc-tap/ttpm']" routerLinkActive="router-link-active">Hỗ trợ TTPM</a></li>
+                                        <li><a [routerLink]="['/ho-tro-hoc-tap/bknet']" routerLinkActive="router-link-active">Hỗ trợ BKNET</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="javascript:void(0)">Sinh viên</a>
+                                    <ul>
+                                        <li><a [routerLink]="['/sinh-vien/thong-tin']" routerLinkActive="router-link-active">Thông tin cá nhân</a></li>
+                                        <li><a [routerLink]="['/sinh-vien/doi-mat-khau']" routerLinkActive="router-link-active">Đổi mật khẩu</a></li>
+                                        <li><a href="javascript:void(0)">Xem điểm</a></li>
+                                        <li><a href="javascript:void(0)">Số buổi đi học/nghỉ học</a></li>
+                                        <li><a href="javascript:void(0)">Xem lịch học</a></li>
+                                        <li><a href="javascript:void(0)">Xem lịch thi/ Bảo vệ Project</a></li>
+                                        <li><a href="javascript:void(0)">Đăng ký thi lại</a></li>
+                                        <li><a href="javascript:void(0)">Xem thông tin học phí</a></li>
+                                        <li><a href="javascript:void(0)">Xin phép nghỉ học</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Tài liệu</a>
+                                    <ul class="thired-level">
+                                        <li><a [routerLink]="['/tai-lieu-hoc-tap/danh-muc/chuyen-nganh']" routerLinkActive="router-link-active">Tài liệu chuyên ngành</a></li>
+                                        <li><a [routerLink]="['/tai-lieu-hoc-tap/danh-muc/tieng-anh']" routerLinkActive="router-link-active">Tài liệu tiếng anh</a></li>
+                                        <li><a [routerLink]="['/tai-lieu-hoc-tap/nop-bai-tap']" routerLinkActive="router-link-active">Nộp bài tập</a></li>
+                                        <li><a href="javascript:void(0)">Đánh giá của giảng viên</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">Việc làm</a>
+                                    <ul class="thired-level">
+                                        <li><a href="javascript:void(0)">Thông tin việc làm</a></li>
+                                        <li><a href="javascript:void(0)">Đăng ký hỗ trợ việc làm</a></li>
+                                        <li><a href="javascript:void(0)">Tạo CV</a></li>
+                                    </ul>
+                                </li>
+                                <li><a [routerLink]="['/gop-y']" routerLinkActive="router-link-active">Góp ý</a></li>
+                                <!-- <li><a href="#">Đăng nhập</a></li>
+                              <li><a href="#">Đăng ký</a></li> -->
+                                <li><a [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="onLoggedout()">Thoát</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area End -->
+</header>
+<!-- Header Area End Here -->
